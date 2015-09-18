@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<title>Sign Up</title>
+    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+		   href='stylesPWS/wide.css' />
+	<link rel='stylesheet' 
+		   type='text/css' 
+		   media='only screen and (max-width: 480px)'
+		   href='stylesPWS/smartphone.css' />
+	<script type="text/javascript">
+		function ikusBalioak(){
+			var sAux="";
+			var frm=document.getElementById("erregistro");
+			for(i=1;i<frm.elements.length;i++){
+			sAux +="IZENA: " + frm.elements[i].name+"";
+			sAux +="BALIOA: " + frm.elements[i].value+"\n";
+		}
+		alert(sAux);
+		}
+	</script>
+  </head>
+  <body>
+	<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()">
+		Izen-abizenak(*)<br>
+		<input id="izenabizenak" type="text" name="izenabizenak">
+		<br>
+		Eposta elektronikoa(*)<br>
+		<input id="eposta" type="email" name="eposta">
+		<br>
+		Pasahitza(*)<br>
+		<input id="pasahitza" type="password" name="pasahitza">
+		<br>
+		Telefono zenbakia(*)<br>
+		<input id="telefonoa" type="tel" name="telefonoa">
+		<br>
+		Espezialitatea(*)<br>
+		<select id="espezialitatea" name="espezialitatea">
+			<option value="software">Software Ingeniaritza</option>
+			<option value="konputazioa">Konputazioa</option>
+			<option value="konputagailu">Konputagailu Ingeniaritza</option>
+		</select>
+		<br>
+		Interesa duzun teknologia eta herramintak:<br>
+		<textarea id="interesak" name="interesak" rows="4" cols="50"></textarea>
+		<br>
+		<input id="bidali" name="bidali" type="submit" value="Bidali">
+		<br>
+		
+	</form>
+  </body>
+</html>
