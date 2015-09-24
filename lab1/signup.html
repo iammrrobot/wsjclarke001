@@ -16,18 +16,41 @@
 		function ikusBalioak(){
 			var sAux="";
 			var frm=document.getElementById("erregistro");
-			for(i=0;i<frm.elements.length;i++){
-			if (frm.elements[i].value == null || frm.elements[i].value == "" ) {
-				sAux += frm.elements[i].name+" eremua betetzea derrigorrezkoa da!!!\n";
-				alert(sAux);
-				return false;
+			var iza = /[A-Z]+[a-z]* {1}[A-Z]+[a-z]* {1}[A-Z]+[a-z]*/;
+			var pas = /.{6,}/;
+			var epo = /[a-z]+[0-9]{3}@ikasle.ehu.(es|eus)/;
+			var tel = /[0-9]{9}/;
+			var boo = Boolean(true);
+			for(i=0;i<5;i++) {
+				if (frm.elements[i].value == null || frm.elements[i].value == "" ) {
+					sAux += frm.elements[i].name+" eremua betetzea derrigorrezkoa da!!!\n";
+					boo = false;
+				}
 			}
-			else {
-				sAux +="IZENA: " + frm.elements[i].name+"";
-				sAux +="BALIOA: " + frm.elements[i].value+"\n";
+			if (!(frm.elements[2].value.match(pas))){
+				sAux += frm.elements[2].name+"k gutxienez 6 karaktere eduki behar ditu!!\n";
+				boo = false;
 			}
+			if (!(frm.elements[1].value.match(epo))){
+				sAux += frm.elements[1].name+"k EHUko e-posta formatua eduki behar du!!\n";
+				boo = false;
 			}
-		alert(sAux);
+			if (!(frm.elements[3].value.match(tel))){
+				sAux += frm.elements[3].name+"k 9 zenbaki eduki behar ditu!!\n";
+				boo = false;
+			}
+			if (!(frm.elements[0].value.match(iza))){
+				sAux += frm.elements[0].name+" eremuan izen bat eta 2 abizen jarri behar dira!!\n";
+				boo = false;
+			}
+			if (boo) {
+				for(i=0;i<frm.elements.length;i++){
+					sAux += frm.elements[i].name+": ";
+					sAux += frm.elements[i].value+"\n";
+				}
+			}
+			alert(sAux);
+			return boo;
 		}
 	</script>
   </head>
