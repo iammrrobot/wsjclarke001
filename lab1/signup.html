@@ -16,43 +16,55 @@
 		function ikusBalioak(){
 			var sAux="";
 			var frm=document.getElementById("erregistro");
-			for(i=1;i<frm.elements.length;i++){
-			sAux +="IZENA: " + frm.elements[i].name+"";
-			sAux +="BALIOA: " + frm.elements[i].value+"\n";
-		}
+			for(i=0;i<frm.elements.length;i++){
+			if (frm.elements[i].value == null || frm.elements[i].value == "" ) {
+				sAux += frm.elements[i].name+" eremua betetzea derrigorrezkoa da!!!\n";
+				alert(sAux);
+				return false;
+			}
+			else {
+				sAux +="IZENA: " + frm.elements[i].name+"";
+				sAux +="BALIOA: " + frm.elements[i].value+"\n";
+			}
+			}
 		alert(sAux);
 		}
 	</script>
   </head>
   <body>
+	
 	<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()">
 		Izen-abizenak(*)<br>
-		<input id="izenabizenak" type="text" name="izenabizenak">
+		<input id="izenabizenak" type="text" name="Izen-abizenak">
 		<br>
 		Eposta elektronikoa(*)<br>
-		<input id="eposta" type="email" name="eposta">
+		<input id="eposta" type="text" name="E-posta">
 		<br>
 		Pasahitza(*)<br>
-		<input id="pasahitza" type="password" name="pasahitza">
+		<input id="pasahitza" type="password" name="Pasahitza">
 		<br>
 		Telefono zenbakia(*)<br>
-		<input id="telefonoa" type="tel" name="telefonoa">
+		<input id="telefonoa" type="text" name="Telefonoa">
 		<br>
 		Espezialitatea(*)<br>
-		<select id="espezialitatea" name="espezialitatea">
+		<select id="espezialitatea" name="Espezialitatea">
 			<option value="software">Software Ingeniaritza</option>
 			<option value="konputazioa">Konputazioa</option>
 			<option value="konputagailu">Konputagailu Ingeniaritza</option>
+			<option value="beste">Besterik</option>
 		</select>
 		<br>
 		Interesa duzun teknologia eta herramintak:<br>
-		<textarea id="interesak" name="interesak" rows="4" cols="50"></textarea>
+		<textarea id="interesak" name="Interesak" rows="4" cols="50"></textarea>
 		<br>
 		Argazkia<br>
-		<input id="argazkia" type="file" name="argazkia">
+		<input id="argazkia" type="file" name="Argazkia">
 		<br>
-		<input id="bidali" name="bidali" type="submit" value="Bidali">
+		<input id="bidali" name="Bidali" type="submit" value="Bidali">
 		<br>
 	</form>
+	<span>
+		<a href="layout.html">Atzera</a><br>
+	</span>	
   </body>
 </html>
