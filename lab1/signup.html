@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
 <html>
 <head>
-    <meta name="tipo_contenido" content="text/html;" http-equiv="content-type" charset="utf-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<title>Sign Up</title>
-    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css' />
+    <link rel='stylesheet' type='text/css' href='stylesPWS/style.css'>
 	<link rel='stylesheet' 
 		   type='text/css' 
 		   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
-		   href='stylesPWS/wide.css' />
+		   href='stylesPWS/wide.css'>
 	<link rel='stylesheet' 
 		   type='text/css' 
 		   media='only screen and (max-width: 480px)'
-		   href='stylesPWS/smartphone.css' />
+		   href='stylesPWS/smartphone.css'>
 	<script type="text/javascript">
 		function ikusBalioak(){
 			var sAux="";
@@ -44,7 +44,7 @@
 				boo = false;
 			}
 			if (boo) {
-				for(i=0;i<frm.elements.length;i++){
+				for(i=0;i<frm.elements.length-1;i++){
 					sAux += frm.elements[i].name+": ";
 					sAux += frm.elements[i].value+"\n";
 				}
@@ -55,7 +55,7 @@
 	</script>
   </head>
   <body>
-	
+	<!-- action atributua falta da -->
 	<form id="erregistro" name="erregistro" onSubmit="ikusBalioak()">
 		Izen-abizenak(*)<br>
 		<input id="izenabizenak" type="text" name="Izen-abizenak">
@@ -71,10 +71,10 @@
 		<br>
 		Espezialitatea(*)<br>
 		<select id="espezialitatea" name="Espezialitatea">
-			<option value="software">Software Ingeniaritza</option>
-			<option value="konputazioa">Konputazioa</option>
-			<option value="konputagailu">Konputagailu Ingeniaritza</option>
-			<option value="beste">Besterik</option>
+			<option value="Software">Software Ingeniaritza</option>
+			<option value="Konputazioa">Konputazioa</option>
+			<option value="Konputagailu">Konputagailu Ingeniaritza</option>
+			<option value="Besterik">Besterik</option>
 		</select>
 		<br>
 		Interesa duzun teknologia eta herramintak:<br>
