@@ -99,26 +99,28 @@
 		<input id="telefonoa" type="tel" name="Telefonoa">
 		<br>
 		Espezialitatea(*)<br>
-		<select id="espezialitatea" name="Espezialitatea" onchange="myFunction()">
-			<option value="Software">Software Ingeniaritza</option>
+		<select id="espezialitatea" name="Espezialitatea" onchange="testuKaxa()">
+			<option selected="selected" value="Software">Software Ingeniaritza</option>
 			<option value="Konputazioa">Konputazioa</option>
 			<option value="Konputagailu">Konputagailu Ingeniaritza</option>
 			<option value="Besterik">Besterik:</option>
 		</select>
 		<div id="container"></div>
 		<script>
-			function myFunction() {
+			function testuKaxa() {
 				var container = document.getElementById("container");
 				while (container.hasChildNodes()) {
 					container.removeChild(container.lastChild);
 				}
-				<!-- container.appendChild(document.createTextNode("Besterik: ")); -->
-				var input = document.createElement("input");
-				input.id = "dinamikoa";
-				input.type = "text";
-				input.name = "Espezialitatea";
-				container.appendChild(input);
-				container.appendChild(document.createElement("br"));
+				if (document.getElementById("espezialitatea").selectedIndex==3) {
+					<!-- container.appendChild(document.createTextNode("Besterik: ")); -->
+					var input = document.createElement("input");
+					input.id = "dinamikoa";
+					input.type = "text";
+					input.name = "Espezialitatea";
+					container.appendChild(input);
+					container.appendChild(document.createElement("br"));
+				}
 			}
 		</script>
 		Interesa duzun teknologia eta herramintak:<br>
@@ -126,7 +128,7 @@
 		<br>
 		Argazkia<br>
 		<input id="argazkia" type="file" name="Argazkia" accept="image/*" onchange="loadFile(event)">
-		<img src="#" id="output" alt="Argazkia"/>
+		<img src="#" id="output" alt=""/>
 		<script>
 			var loadFile = function(event) {
 				var output = document.getElementById('output');
