@@ -1,4 +1,5 @@
 <?php
+	//Pasahitza: dbroot
 	//phpinfo();
 	// Konexioa sortu
 	$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
