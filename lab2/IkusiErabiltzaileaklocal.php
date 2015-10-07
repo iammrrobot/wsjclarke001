@@ -25,6 +25,7 @@
 				<th>Telefonoa</th>
 				<th>Espezialitatea</th>
 				<th>Interesak</th>
+				<th>Argazkia</th>
 			<tr>
 			
 			<?php
@@ -37,6 +38,7 @@
 					echo "<td>".$erabiltzaile['Telefonoa']."</td>";
 					echo "<td>".$erabiltzaile['Espezialitatea']."</td>";
 					echo "<td>".$erabiltzaile['Interesak']."</td>";
+					echo "<td>".$erabiltzaile['Argazkia']."</td>";
 					echo "<tr>";
 				}
 			?>

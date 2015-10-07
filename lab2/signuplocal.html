@@ -85,7 +85,7 @@
 	</script>
   </head>
   <body>
-	<form action="Erregistratulocal.php" method="post" id="erregistro" name="erregistro" onSubmit="return ikusBalioak()">
+	<form action="Erregistratulocal.php" method="post"  enctype="multipart/form-data" id="erregistro" name="erregistro" onSubmit="return ikusBalioak()">
 		Izen-abizenak(*)<br>
 		<input id="izenabizenak" type="text" name="Izenabizenak">
 		<br>
@@ -117,7 +117,7 @@
 					var input = document.createElement("input");
 					input.id = "dinamikoa";
 					input.type = "text";
-					input.name = "Espezialitatea";
+					input.name = "Dinamikoa";
 					container.appendChild(input);
 					container.appendChild(document.createElement("br"));
 				}
