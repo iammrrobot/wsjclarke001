@@ -4,14 +4,13 @@
 	// Konexioa egiaztatu
 	//mysql_select_db("u275359965_quiz") or die(mysql_error());
 	// Konexioa lokala sortu
-	
+	$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
+	// Konexioa lokala egiaztatu
+	mysql_select_db("quiz") or die(mysql_error());
 	$zuzena=1;
 	$hutsa=1;
 	
 	if (isset($_POST['Eposta'])) {
-		$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
-		// Konexioa lokala egiaztatu
-		mysql_select_db("quiz") or die(mysql_error());
 		if(empty($_POST['Eposta']))
 		{
 			$hutsa=0;
