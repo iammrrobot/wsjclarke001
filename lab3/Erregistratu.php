@@ -1,6 +1,6 @@
 <?php
 	// Konexioa sortu
-	//$sql = mysql_connect('mysql.hostinger.es', 'u275359965_root', 'dbroot') or die(mysql_error());
+	//$sql = mysqli_connect('mysql.hostinger.es', 'u275359965_root', 'dbroot') or die(mysql_error());
 	// Konexioa egiaztatu
 	//mysql_select_db("u275359965_quiz") or die(mysql_error());
 	// Konexioa lokala sortu
@@ -8,10 +8,28 @@
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
 	$email = $_POST['Eposta'];
-	if (!filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)/"))) === false) {
-		echo("$email email helbide zuzena da.");
+	$pasa = $_POST['Pasahitza'];
+	$tele = $_POST['Telefonoa'];
+	$izen = $_POST['Izenabizenak'];
+	if (!filter_var($izen, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[A-Z]+[a-z]* {1}[A-Z]+[a-z]* {1}[A-Z]+[a-z]*/"))) === false) {
+		echo("$izen izena zuzena da.<br>");
 	} else {
-		echo("$email ez da email helbide zuzena.");
+		echo("$izen izena ez da zuzena.<br>");
+	}
+	if (!filter_var($pasa, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/.{6,}/"))) === false) {
+		echo("Pasahitza formatua zuzena da.<br>");
+	} else {
+		echo("Pasahitza formatua ez da zuzena.<br>");
+	}
+	if (!filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)/"))) === false) {
+		echo("$email email helbide zuzena da.<br>");
+	} else {
+		echo("$email ez da email helbide zuzena.<br>");
+	}
+	if (!filter_var($tele, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[0-9]{9}/"))) === false) {
+		echo("$tele telefonoa zuzena da.<br>");
+	} else {
+		echo("$tele telefonoa ez da zuzena.<br>");
 	}
 	$target_dir = "uploads/";
 	$target_file = $target_dir . basename($_FILES["Argazkia"]["name"]);

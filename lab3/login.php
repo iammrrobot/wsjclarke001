@@ -7,7 +7,8 @@
 	$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
-	$zuzena=1;
+	$zuzenabat=1;
+	$zuzenabi=1;
 	$hutsa=1;
 	
 	if (isset($_POST['Eposta'])) {
@@ -21,19 +22,21 @@
 			$hutsa=0;
 		}
 		
-		$eposta = trim($_POST['Eposta']);
-		$pasahitza = trim($_POST['Pasahitza']);
+		$eposta = $_POST['Eposta'];
+		$pasahitza = $_POST['Pasahitza'];
 		
 		$query = mysql_query("SELECT Eposta, Pasahitza FROM Erabiltzaile
 		WHERE Eposta='$eposta' and pasahitza='$pasahitza'") or die(mysql_error());
 
 		$result = mysql_fetch_array($query);
-		
+		if (filter_var($eposta, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)/"))) === false) {
+			$zuzenabat=0;
+		}
 
 		if($result[0]!=null){
 			header("location:quizzes.html");
 		}else{
-			$zuzena=0;
+			$zuzenabi=0;
 		}
 	}
 ?>
@@ -66,7 +69,7 @@
 			if ($hutsa==0) {
 				echo "Eposta edo pasahitza hutsik dago!";
 			} 
-			else if ($zuzena==0) {
+			else if ($zuzenabat==0 || $zuzenabi==0) {
 				echo "Eposta edo pasahitza ez da zuzena!";
 			}
 		?>
