@@ -1,6 +1,6 @@
 <?php
 	// Konexioa sortu
-	//$sql = mysqli_connect('mysql.hostinger.es', 'u275359965_root', 'dbroot') or die(mysql_error());
+	//$sql = mysql_connect('mysql.hostinger.es', 'u275359965_root', 'dbroot') or die(mysql_error());
 	// Konexioa egiaztatu
 	//mysql_select_db("u275359965_quiz") or die(mysql_error());
 	// Konexioa lokala sortu
@@ -35,17 +35,19 @@
 	$target_file = $target_dir . basename($_FILES["Argazkia"]["name"]);
 	$uploadOk = 1;
 	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-	$besterik = $_POST['Espezialitatea'];
 	$fileName = $_FILES['Argazkia']['name'];
 	$tmpName = $_FILES['Argazkia']['tmp_name'];
 	$fileSize = $_FILES['Argazkia']['size'];
 	$fileType = $_FILES['Argazkia']['type'];
 	if(isset($_POST["Bidali"])) {
-		$fp = fopen($tmpName, 'r');
-		$edukia = fread($fp, filesize($tmpName));
-		$edukia = addslashes($edukia);
-		fclose($fp);
-		$check = getimagesize($_FILES["Argazkia"]["tmp_name"]);
+		$check = false;
+		if(!empty($_FILES['Argazkia']['name'])) {
+			$fp = fopen($tmpName, 'r');
+			$edukia = fread($fp, filesize($tmpName));
+			$edukia = addslashes($edukia);
+			fclose($fp);
+			$check = getimagesize($_FILES["Argazkia"]["tmp_name"]);
+		}
 		if($check !== false) {
 			echo "Igotako argazkia - " . $check["mime"] . ".";
 			$uploadOk = 1;
