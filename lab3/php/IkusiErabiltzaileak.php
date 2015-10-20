@@ -33,12 +33,7 @@
 			<tr>
 			
 			<?php
-			
 				while($erabiltzaile=mysql_fetch_assoc($records)) {
-					//$lerroa = "<tr><td>" . $erabiltzaile['Eposta'] . '</td> <td>' . $erabiltzaile['Izena'] . '</td><td>' . $erabiltzaile['Pasahitza'] . '</td><td>';
-					//$lerroa = $lerroa . $erabiltzaile['Telefonoa'] . '</td> <td>' . $erabiltzaile['Espezialitatea'] . '</td><td>' . $erabiltzaile['Interesak'] . '</td><td>';
-					//$lerroa = $lerroa . '</td><td>' . '<img height="70" width="150" align="middle" src="IkusArgazkia.php?id='.$erabiltzaile['Eposta'].'"/>' . '</td></tr>';
-					//echo $lerroa;
 					echo "<td>".$erabiltzaile['Izena']."</td>";
 					echo "<td>".$erabiltzaile['Eposta']."</td>";
 					echo "<td>".$erabiltzaile['Pasahitza']."</td>";
@@ -47,13 +42,9 @@
 					echo "<td>".$erabiltzaile['Interesak']."</td>";
 					$image = $erabiltzaile['Argazkia'];
 					if(!empty($image)) {
-						/*$type = getimagesize($image);
 						$enc = base64_encode($image);
 						echo "<td>";
-						echo "<img src='data:" . $type['mime'] . "';base64," . $enc . "'>";
-						echo "</td>";*/
-						echo "<td>";
-						echo '<img height="70" width="150" align="middle" src="IkusArgazkia.php?id='.$erabiltzaile['Eposta'].'"/>';
+						echo '<img height="70px" width="150px" align="middle" src="data:image/;base64,' . $enc . '"/>';
 						echo "</td>";
 					}
 					echo "</tr>";

@@ -42,40 +42,40 @@
 ?>
 <!DOCTYPE html> 
 <html>
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<title>Log In</title>
-    <link rel="stylesheet" type="text/css" href="stylesPWS/style.css">
-	<link rel="stylesheet" 
-		  type="text/css" 
-		  media="screen and (min-device-width: 480px) and (min-width: 530px)"
-		  href="stylesPWS/wide.css">
-	<link rel="stylesheet" 
-		  type="text/css" 
-		  media="screen and (max-width: 480px)"
-		  href="stylesPWS/smartphone.css">
-</head>
-<body>
-	<form action="" method="post" enctype="multipart/form-data" id="login" name="login">
-		Eposta elektronikoa<br>
-		<input id="eposta" type="email" name="Eposta">
-		<br>
-		Pasahitza<br>
-		<input id="pasahitza" type="password" name="Pasahitza">
-		<br>
-		<input id="bidali" name="Bidali" type="submit" value="Bidali">
-		<br>
-		<?php
-			if ($hutsa==0) {
-				echo "Eposta edo pasahitza hutsik dago!";
-			} 
-			else if ($zuzenabat==0 || $zuzenabi==0) {
-				echo "Eposta edo pasahitza ez da zuzena!";
-			}
-		?>
-	</form>
-	<span>
-		<a href="layout.html">Atzera</a><br>
-	</span>	
-</body>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Log In</title>
+		<link rel="stylesheet" type="text/css" href="stylesPWS/style.css">
+		<link rel="stylesheet" 
+			type="text/css" 
+			media="screen and (min-device-width: 480px) and (min-width: 530px)"
+			href="stylesPWS/wide.css">
+		<link rel="stylesheet" 
+			type="text/css" 
+			media="screen and (max-width: 480px)"
+			href="stylesPWS/smartphone.css">
+	</head>
+	<body>
+		<form action="" method="post" enctype="multipart/form-data" id="login" name="login">
+			Eposta elektronikoa<br>
+			<input id="eposta" type="email" name="Eposta">
+			<br>
+			Pasahitza<br>
+			<input id="pasahitza" type="password" name="Pasahitza">
+			<br>
+			<input id="bidali" name="Bidali" type="submit" value="Bidali">
+			<br>
+			<?php
+				if ($hutsa==0) {
+					echo "Eposta edo pasahitza hutsik dago!";
+				} 
+				else if ($zuzenabat==0 || $zuzenabi==0) {
+					echo "Eposta edo pasahitza ez da zuzena!";
+				}
+			?>
+		</form>
+		<span>
+			<a href="layout.html">Atzera</a><br>
+		</span>	
+	</body>
 </html>
