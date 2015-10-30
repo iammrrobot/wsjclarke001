@@ -116,7 +116,10 @@
 			<br>
 			<input id="gehitu" name="Gehitu" type="submit" value="Gehitu galdera">
 			<br>
-			<a href="../layout.html">Hasierako orrira joan</a><br>
+			<!-- Lokala -->
+			<a href="../lab5/layout.html">Hasierako orria</a><br>
+			<!-- Web-a -->
+			<!--<a href="../layout.html">Hasierako orria</a><br>-->
 			<a href="seeXMLQuestions.php">Ikusi Galderak</a><br>
 		</form>
 	</body>
