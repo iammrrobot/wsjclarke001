@@ -77,7 +77,10 @@
 			?>
 		</form>
 		<span>
-			<a href="../layout.html">Atzera</a><br>
+			<!-- Lokala -->
+			<a href="../lab5/layout.html">Atzera</a><br>
+			<!-- Web-a -->
+			<!--<a href="../layout.html">Atzera</a><br>-->
 		</span>	
 	</body>
 </html>

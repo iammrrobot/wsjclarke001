@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <assessmentItems>
 	<assessmentItem konplexutasuna="3" subject="Mikologia">
 		<itemBody> 
@@ -16,4 +16,4 @@
 			<value>Phalloides</value>
 		</correctResponse>
 	</assessmentItem>
-</assessmentItems>
+<assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="2" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>JoxeMiel</value></correctResponse></assesmentItem></assessmentItems>

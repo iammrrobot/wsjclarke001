@@ -31,9 +31,32 @@
 		$ip = $_SERVER["REMOTE_ADDR"];
 		$mota = "Galdera txertatu";
 		
+		libxml_use_internal_errors(true);
+		$xml=simplexml_load_file('../xml/galderak.xml');
+		
+		if ($xml === false) {
+			echo "Arazoa XML-a kargatzen!\n";
+			foreach(libxml_get_errors() as $error) {
+				echo "\t", $error->message;
+			}
+		}
+		
 		if($hutsa == 1) {
 			$sqlgaldera="INSERT INTO Galderak(Eposta, Galdera, Erantzuna, Zailtasuna) VALUES ('$eposta', '$galdera', '$erantzuna', '$zailtasuna')";
 			$sqlkonexioa="INSERT INTO Konexioak(Eposta, K_Ordua) VALUES ('$eposta', '$ordua')";
+			
+			$assesItem = $xml->addchild('assesmentItem');
+			$assesItem-> addAttribute('konplexutasuna', $zailtasuna);
+			$assesItem-> addAttribute('subject', 'Orokorra');
+		
+			$Itembody= $assesItem-> addChild('itemBody');
+			$Itembody-> addChild('p', $galdera);
+			$cResponse= $assesItem ->addChild('correctResponse');
+			$Value= $cResponse-> addChild('value',$erantzuna);
+		
+			$xml->asXML('../xml/galderak.xml');
+			//echo $xml->asXML();
+			
 			if (!mysql_query($sqlgaldera) || !mysql_query($sqlkonexioa))
 			{
 				die('Errorea: ' . mysql_error());
@@ -51,13 +74,18 @@
 				die('Errorea: ' . mysql_error());
 			}
 			
-			
 			echo "Txertatze bat eginda.";
 			mysql_close();
 		}
 		else {
 			echo "Kutxetako bat hutsik dago!";
 		}
+		
+		//seeXMLQuestions.php-era redirekzionatzeko
+		//$host  = $_SERVER['HTTP_HOST'];
+		//$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		//$extra = 'seeXMLQuestions.php';
+		//header("Location: http://$host$uri/$extra");
 	}
 ?>
 <!DOCTYPE html>
@@ -89,6 +117,7 @@
 			<input id="gehitu" name="Gehitu" type="submit" value="Gehitu galdera">
 			<br>
 			<a href="../layout.html">Hasierako orrira joan</a><br>
+			<a href="seeXMLQuestions.php">Ikusi Galderak</a><br>
 		</form>
 	</body>
 </html>
