@@ -64,5 +64,5 @@
 	}
 	echo "Txertatze bat eginda.";
 	mysql_close();
-	echo "<p> <a href='IkusiErabiltzaileak.php'> Erabiltzaileak ikusi </a>";
+	echo "<a href='IkusiErabiltzaileak.php'> Erabiltzaileak ikusi </a>";
 ?> 

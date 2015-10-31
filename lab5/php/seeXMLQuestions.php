@@ -45,10 +45,13 @@
 			
 		</table>
 		<span>
+			<br>
 			<!-- Lokala -->
-			<a href="../lab5/layout.html">Hasierako orria</a><br>
+			<!--<a href="../lab5/layout.html">Hasierako orria</a><br>-->
 			<!-- Web-a -->
-			<!--<a href="../layout.html">Hasierako orria</a><br>-->
+			<a href="../layout.html">Hasierako orria</a><br>
+			<br>
+			<a href="../html/IkusiXML.html">Ikusi XML-a</a><br>
 		</span>	
 	</body>
 </html> 
