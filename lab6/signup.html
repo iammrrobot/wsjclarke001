@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Sign Up</title>
+		<link rel="stylesheet" type="text/css" href="stylesPWS/style.css">
+		<link rel="stylesheet" 
+			type="text/css" 
+			media="screen and (min-device-width: 480px) and (min-width: 530px)"
+			href="stylesPWS/wide.css">
+		<link rel="stylesheet" 
+			type="text/css" 
+			media="screen and (max-width: 480px)"
+			href="stylesPWS/smartphone.css">
+		<script src="javascript/signup.js"></script>
+	</head>
+	<body>
+		<form action="php/Erregistratu.php" method="post" enctype="multipart/form-data" id="erregistro" name="erregistro" onSubmit="return ikusBalioak()">
+			Izen-abizenak(*)<br>
+			<input id="izenabizenak" type="text" name="Izenabizenak">
+			<br>
+			Eposta elektronikoa(*)<br>
+			<input id="eposta" type="email" name="Eposta">
+			<br>
+			Pasahitza(*)<br>
+			<input id="pasahitza" type="password" name="Pasahitza">
+			<br>
+			Telefono zenbakia(*)<br>
+			<input id="telefonoa" type="tel" name="Telefonoa">
+			<br>
+			Espezialitatea(*)<br>
+			<select id="espezialitatea" name="Espezialitatea" onchange="testuKaxa()">
+				<option selected="selected" value="Software">Software Ingeniaritza</option>
+				<option value="Konputazioa">Konputazioa</option>
+				<option value="Konputagailu">Konputagailu Ingeniaritza</option>
+				<option value="Besterik">Besterik:</option>
+			</select>
+			<div id="container"></div>
+			<script src="javascript/besterik.js"></script>
+			Interesa duzun teknologia eta herramintak:<br>
+			<textarea id="interesak" name="Interesak" rows="4" cols="50"></textarea>
+			<br>
+			Argazkia<br>
+			<input id="argazkia" type="file" name="Argazkia" accept="image/*" onchange="loadFile(event)">
+			<img src="#" id="output" alt=""/>
+			<script>
+				var loadFile = function(event) {
+					var output = document.getElementById('output');
+					output.src = URL.createObjectURL(event.target.files[0]);
+				};
+			</script>
+			<br>
+			<input id="bidali" name="Bidali" type="submit" value="Bidali">
+			<br>
+		</form>
+		<span>
+			<a href="layout.html">Atzera</a><br>
+		</span>	
+	</body>
+</html>
