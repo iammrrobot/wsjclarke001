@@ -80,9 +80,14 @@
 		else {
 			echo "Kutxetako bat hutsik dago!";
 		}
+		
+		//seeXMLQuestions.php-era redirekzionatzeko
+		//$host  = $_SERVER['HTTP_HOST'];
+		//$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+		//$extra = 'seeXMLQuestions.php';
+		//header("Location: http://$host$uri/$extra");
 	}
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -97,7 +102,6 @@
 			   type='text/css' 
 			   media='only screen and (max-width: 480px)'
 			   href='stylesPWS/smartphone.css'>
-		<script src="../javascript/handling.js"></script>
 	</head>
 	<body>
 		<form action="" method="post" enctype="multipart/form-data" id="login" name="login">
@@ -110,22 +114,13 @@
 			Zailtasun-maila(Max: 5)<br>
 			<input id="zailtasuna" type="number" name="Zailtasuna" value="1" min="1" max="5">
 			<br>
-			<input id="gehitu" name="Gehitu" type="button" value="Gehitu galdera" onclick="galderaGehitu()">
+			<input id="gehitu" name="Gehitu" type="submit" value="Gehitu galdera">
 			<br>
-			<input id="ikusi" name="Ikusi" type="button" value="Ikusi nire galderak" onclick="nireGalderakIkusi()"><br>
 			<!-- Lokala -->
-			<a href="../layout.html">Hasierako orria</a><br>
+			<a href="../lab5/layout.html">Hasierako orria</a><br>
 			<!-- Web-a -->
 			<!--<a href="../layout.html">Hasierako orria</a><br>-->
+			<a href="seeXMLQuestions.php">Ikusi Galderak</a><br>
 		</form>
-		<div id="emaitza" style="background-color:#99FF66;">
-			<p>Galderak</p>
-		</div>
-		<div id="galderakop" style="background-color:#298ff5;">
-			<p>Galdera kopurua</p>
-		</div>
-		<br>
-		<br>
-		<a href="kodeazalpena.pdf">Kode azalpena</a><br>
 	</body>
 </html>

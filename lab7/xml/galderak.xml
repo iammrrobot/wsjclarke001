@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<assessmentItems>
+	<assessmentItem konplexutasuna="3" subject="Mikologia">
+		<itemBody> 
+			<p>Amanita muskaria zer da?</p>
+		</itemBody>
+		<correctResponse>
+			<value>Perretxikoa</value>
+		</correctResponse>
+	</assessmentItem>
+	<assessmentItem konplexutasuna="5" subject="Mikologia">
+		<itemBody>
+			<p>Amanita hilkorrena da:</p>
+		</itemBody>
+		<correctResponse>
+			<value>Phalloides</value>
+		</correctResponse>
+	</assessmentItem>
+<assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>Nistelroy</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="2" subject="Orokorra"><itemBody><p>Nola izen duzu?</p></itemBody><correctResponse><value>JoxeMiel</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="1" subject="Orokorra"><itemBody><p>Zer da Ajax?</p></itemBody><correctResponse><value>Amsterdameko futbol talde bat.</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="3" subject="Orokorra"><itemBody><p>Nola jakin dezaket nire galdera proportzioa?</p></itemBody><correctResponse><value>Botoia sakatuz.</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="3" subject="Orokorra"><itemBody><p>Nola jakin dezaket nire galderen proportzioa?</p></itemBody><correctResponse><value>Botoia sakatuz.</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="3" subject="Orokorra"><itemBody><p>Nola jakin dezaket nire galderen proportzioa?</p></itemBody><correctResponse><value>Botoia sakatuz.</value></correctResponse></assesmentItem><assesmentItem konplexutasuna="3" subject="Orokorra"><itemBody><p>Zenbat galdera dazkazu?</p></itemBody><correctResponse><value>Ez dakit.</value></correctResponse></assesmentItem></assessmentItems>

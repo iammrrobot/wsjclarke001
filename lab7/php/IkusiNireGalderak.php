@@ -9,14 +9,18 @@
 	mysql_select_db("quiz") or die(mysql_error());
 	session_start();
 	$eposta = $_SESSION['Eposta'];
-	$sql1="SELECT * FROM `Galderak` WHERE Eposta='$eposta'";
-	$sql2="SELECT * FROM `Galderak`";
-	if (!mysql_query($sql1) || !mysql_query($sql2))
+	$sql="SELECT * FROM `Galderak` WHERE Eposta='$eposta'";
+	$records = mysql_query($sql);
+	if (! $records)
 	{
 		die('Errorea: ' . mysql_error());
+	}else{
+		echo '<br><tr>ZURE GALDERAK:</tr><br><br>';
+		echo '<tr>---------------------------------------------------------------------</tr><br>';
+		while($row=mysql_fetch_assoc($records)){
+			echo '<tr>'.$row['Galdera'].'</tr><br>';
+			echo '<tr>---------------------------------------------------------------------</tr><br>';
+		}
 	}
-	$qsql1 = mysql_query($sql1);
-	$qsql2 = mysql_query($sql2);
-	echo "<br/>Nire galderak/Galderak guztira DB:".mysql_num_rows($qsql1)."/".mysql_num_rows($qsql2)."";
 	mysql_close();
 ?>
