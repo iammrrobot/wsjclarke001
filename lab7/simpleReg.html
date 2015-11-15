@@ -15,25 +15,34 @@
 		<script src="javascript/egiaztatu.js"></script>
 	</head>
 	<body>
-		<form action="php/Erregistratu.php" method="post" enctype="multipart/form-data" id="erregistro" name="erregistro" onSubmit="return ikusBalioak()">
+		<form action="quizzes.php" method="post" enctype="multipart/form-data" id="simplereg" name="simplereg" onSubmit="return egiaztatu()">
 			Eposta elektronikoa(*)<br>
-			<input id="eposta" type="email" name="Eposta" onkeydown="egiaztatuMatrikula()">
+			<input id="eposta" type="email" name="Eposta" onChange="egiaztatuMatrikula()">
+			<br>
+			<div id="egoera" style="background-color:#99FF66; width:200px">
+				<p>Erabiltzailea...</p>
+			</div>
 			<br>
 			Pasahitza(*)<br>
-			<input id="pasahitza" type="password" name="Pasahitza" onkeydown="egiaztatuPasahitza()">
+			<input id="pasahitza" type="password" name="Pasahitza" onChange="egiaztatuPasahitza()">
 			<br>
-			<input id="bidali" name="Bidali" type="button" value="Bidali" onclick="egiaztatuMatrikula()">
+			<div id="pegoera" style="background-color:#99FF66; width:200px">
+				<p>Pasahitza...</p>
+			</div>
+			<br>
+			Identifikadorea(*)<br>
+			<input id="id" type="password" name="Id" onChange="egiaztatuId()">
+			<br>
+			<div id="pid" style="background-color:#99FF66; width:200px">
+				<p>Identifikadorea...</p>
+			</div>
+			<br>
+			<input id="bidali" name="Bidali" type="submit" value="Bidali">
 			<br>
 		</form>
+		<br>
 		<span>
 			<a href="layout.html">Atzera</a><br>
 		</span>
-		<div id="egoera" style="background-color:#99FF66;">
-			<p>Egoera</p>
-		</div>
-		<br>
-		<div id="pegoera" style="background-color:#99FF66;">
-			<p>Pasahitza egoera</p>
-		</div>
 	</body>
 </html>

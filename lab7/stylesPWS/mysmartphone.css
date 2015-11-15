@@ -7,3 +7,9 @@ body				{font-size: large;
 					text-align: center;
 					margin: 10px 30px 10px 30px}
 footer, input		{font-size: large;}
+
+#map {
+	margin:0 auto;
+	width:500px;
+	height:380px;
+}

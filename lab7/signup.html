@@ -25,6 +25,9 @@
 			Pasahitza(*)<br>
 			<input id="pasahitza" type="password" name="Pasahitza">
 			<br>
+			<div id="pegoera" style="background-color:#99FF66; width:200px">
+				<p>Pasahitza...</p>
+			</div>
 			Telefono zenbakia(*)<br>
 			<input id="telefonoa" type="tel" name="Telefonoa">
 			<br>
@@ -49,6 +52,13 @@
 					output.src = URL.createObjectURL(event.target.files[0]);
 				};
 			</script>
+			<br>
+			Identifikadorea(*)<br>
+			<input id="id" type="password" name="Id" onChange="egiaztatuId()">
+			<br>
+			<div id="pid" style="background-color:#99FF66; width:200px">
+				<p>Identifikadorea...</p>
+			</div>
 			<br>
 			<input id="bidali" name="Bidali" type="submit" value="Bidali">
 			<br>

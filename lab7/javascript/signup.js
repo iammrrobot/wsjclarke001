@@ -56,6 +56,40 @@ function ikusBalioak(){
 			boo = false;
 		}
 	}
+	XMLHttpRequestObject2 = new XMLHttpRequest();
+	XMLHttpRequestObject2.onreadystatechange = function(){
+		if (XMLHttpRequestObject2.readyState==4)
+		{
+			var obj = document.getElementById('pegoera');
+			obj.innerHTML = XMLHttpRequestObject2.responseText;
+		}
+	}
+
+	var pasahitza = document.getElementById('pasahitza').value;
+	XMLHttpRequestObject2.open("GET", '../lab7/php/soapBezEgiaztatuPasahitzaAJAX.php?Pasahitza='+pasahitza, true);
+	XMLHttpRequestObject2.send();
+
+	XMLHttpRequestObject3 = new XMLHttpRequest();
+	XMLHttpRequestObject3.onreadystatechange = function(){
+		if (XMLHttpRequestObject3.readyState==4)
+		{
+			var obj = document.getElementById('pid');
+			obj.innerHTML = XMLHttpRequestObject3.responseText;
+		}
+	}
+	
+	var id = document.getElementById('id').value;
+	XMLHttpRequestObject3.open("GET", '../lab7/php/soapBezEgiaztatuIdAJAX.php?Id='+id, true);
+	XMLHttpRequestObject3.send();
+	
+	if (document.getElementById('pegoera').innerHTML != "Pasahitza egokia da.") {
+		sAux += "Pasahitza ez da egokia, beste bat erabili.\n";
+		boo = false;
+	}
+	if (document.getElementById('pid').innerHTML != "ERABILTZAILE BAIMENDUA.") {
+		sAux += "BAIMENIK GABEKO ERABILTZAILEA.\n";
+		boo = false;
+	}
 	if (boo) {
 		for(i=0;i<frm.elements.length-1;i++){
 			if (!(frm.elements[i].value == "Besterik")) {

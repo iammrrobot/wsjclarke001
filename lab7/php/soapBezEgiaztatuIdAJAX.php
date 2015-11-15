@@ -7,13 +7,13 @@
 	//$soapclient = new nusoap_client('http://wsjclarke001.hol.es/php/egiaztatuPasahitza.php?wsdl', true);
 	$server = new soap_server;
 	
-	if (isset($_GET['Pasahitza'])) {
-		$emaitza = $soapclient->call('egipasahitza', array('x'=>$_GET['Pasahitza']));
+if (isset($_GET['Id'])) {
+		$emaitza = $soapclient->call('egiid', array('y'=>$_GET['Id']));
 	}
-	if ($emaitza == "BALIOGABEZKOA") {
-		echo "Pasahitza ez da egokia, beste bat erabili.";
+	if ($emaitza == "BAI") {
+		echo "ERABILTZAILE BAIMENDUA.";
 	}
 	else {
-		echo "Pasahitza egokia da.";
+		echo "BAIMENIK GABEKO ERABILTZAILEA.";
 	}
 ?>
