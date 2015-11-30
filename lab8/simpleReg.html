@@ -15,27 +15,15 @@
 		<script src="javascript/egiaztatu.js"></script>
 	</head>
 	<body>
-		<form action="quizzes.php" method="post" enctype="multipart/form-data" id="simplereg" name="simplereg" onSubmit="return egiaztatu()">
+		<form action="php/Erregistratu.php" method="post" enctype="multipart/form-data" id="simplereg" name="simplereg" onSubmit="return egiaztatu()">
 			Eposta elektronikoa(*)<br>
 			<input id="eposta" type="email" name="Eposta" onChange="egiaztatuMatrikula()">
-			<br>
-			<div id="egoera" style="background-color:#99FF66; width:200px">
-				<p>Erabiltzailea...</p>
-			</div>
 			<br>
 			Pasahitza(*)<br>
 			<input id="pasahitza" type="password" name="Pasahitza" onChange="egiaztatuPasahitza()">
 			<br>
-			<div id="pegoera" style="background-color:#99FF66; width:200px">
-				<p>Pasahitza...</p>
-			</div>
-			<br>
-			Identifikadorea(*)<br>
-			<input id="id" type="password" name="Id" onChange="egiaztatuId()">
-			<br>
-			<div id="pid" style="background-color:#99FF66; width:200px">
-				<p>Identifikadorea...</p>
-			</div>
+			Errepikatu Pasahitza(*)<br>
+			<input id="pasahitza2" type="password" name="Pasahitza2" onChange="egiaztatuPasahitza()">
 			<br>
 			<input id="bidali" name="Bidali" type="submit" value="Bidali">
 			<br>
@@ -44,7 +32,5 @@
 		<span>
 			<a href="layout.html">Atzera</a><br>
 		</span>
-		<br>
-		<a href="ws1.pdf">Kode azalpena</a><br>
 	</body>
 </html>

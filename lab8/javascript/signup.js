@@ -3,7 +3,7 @@ function ikusBalioak(){
 	var frm = document.getElementById("erregistro");
 	var iza = new RegExp('[A-Z]+[a-z]* {1}[A-Z]+[a-z]* {1}[A-Z]+[a-z]*');
 	var pas = new RegExp('.{6,}');
-	var epo = new RegExp('[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)');
+	var epo = new RegExp('[a-z]+[0-9]{3}@(\.e)hu(\.e)(s|us)');
 	var tel = new RegExp('[0-9]{9}');
 	//2garren opzioa:
 	//var iza = /[A-Z]+[a-z]* {1}[A-Z]+[a-z]* {1}[A-Z]+[a-z]*/;
@@ -66,7 +66,7 @@ function ikusBalioak(){
 	}
 
 	var pasahitza = document.getElementById('pasahitza').value;
-	XMLHttpRequestObject2.open("GET", '../php/soapBezEgiaztatuPasahitzaAJAX.php?Pasahitza='+pasahitza, true);
+	XMLHttpRequestObject2.open("GET", '../lab7/php/soapBezEgiaztatuPasahitzaAJAX.php?Pasahitza='+pasahitza, true);
 	XMLHttpRequestObject2.send();
 
 	XMLHttpRequestObject3 = new XMLHttpRequest();
@@ -79,7 +79,7 @@ function ikusBalioak(){
 	}
 	
 	var id = document.getElementById('id').value;
-	XMLHttpRequestObject3.open("GET", '../php/soapBezEgiaztatuIdAJAX.php?Id='+id, true);
+	XMLHttpRequestObject3.open("GET", '../lab7/php/soapBezEgiaztatuIdAJAX.php?Id='+id, true);
 	XMLHttpRequestObject3.send();
 	
 	if (document.getElementById('pegoera').innerHTML != "Pasahitza egokia da.") {
@@ -100,34 +100,4 @@ function ikusBalioak(){
 	}
 	alert(sAux);
 	return boo;
-}
-
-XMLHttpRequestObject2 = new XMLHttpRequest();
-XMLHttpRequestObject2.onreadystatechange = function(){
-	if (XMLHttpRequestObject2.readyState==4)
-	{
-		var obj = document.getElementById('pegoera');
-		obj.innerHTML = XMLHttpRequestObject2.responseText;
-	}
-}
-
-function egiaztatuPasahitza() {
-	var pasahitza = document.getElementById('pasahitza').value;
-	XMLHttpRequestObject2.open("GET", '../php/soapBezEgiaztatuPasahitzaAJAX.php?Pasahitza='+pasahitza, true);
-	XMLHttpRequestObject2.send();
-}
-
-XMLHttpRequestObject3 = new XMLHttpRequest();
-XMLHttpRequestObject3.onreadystatechange = function(){
-	if (XMLHttpRequestObject3.readyState==4)
-	{
-		var obj = document.getElementById('pid');
-		obj.innerHTML = XMLHttpRequestObject3.responseText;
-	}
-}
-
-function egiaztatuId() {
-	var id = document.getElementById('id').value;
-	XMLHttpRequestObject3.open("GET", '../php/soapBezEgiaztatuIdAJAX.php?Id='+id, true);
-	XMLHttpRequestObject3.send();
 }
