@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<title>Galderak gehitu</title>
+		<link rel='stylesheet' type='text/css' href='stylesPWS/style.css'>
+		<link rel='stylesheet' 
+			   type='text/css' 
+			   media='only screen and (min-width: 530px) and (min-device-width: 481px)'
+			   href='stylesPWS/wide.css'>
+		<link rel='stylesheet' 
+			   type='text/css' 
+			   media='only screen and (max-width: 480px)'
+			   href='stylesPWS/smartphone.css'>
+		<script src="javascript/egiaztatu.js"></script>
+	</head>
+	<body>
+		<form action="php/Erregistratu.php" method="post" enctype="multipart/form-data" id="simplereg" name="simplereg" onSubmit="return egiaztatu()">
+			Eposta elektronikoa(*)<br>
+			<input id="eposta" type="email" name="Eposta" onChange="egiaztatuMatrikula()">
+			<br>
+			Pasahitza(*)<br>
+			<input id="pasahitza" type="password" name="Pasahitza" onChange="egiaztatuPasahitza()">
+			<br>
+			Errepikatu Pasahitza(*)<br>
+			<input id="pasahitza2" type="password" name="Pasahitza2" onChange="egiaztatuPasahitza()">
+			<br>
+			<input id="bidali" name="Bidali" type="submit" value="Bidali">
+			<br>
+		</form>
+		<br>
+		<span>
+			<a href="layout.html">Atzera</a><br>
+		</span>
+	</body>
+</html>

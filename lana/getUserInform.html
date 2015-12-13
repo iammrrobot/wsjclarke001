@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<HTML>	
+	<HEAD>
+		<script src="javascript/bilatu.js"></script>
+	</HEAD>
+	<BODY>
+		<div align="center">
+			<h1>Type an student's valid email ...</h1>
+			<h1>to get his/her personal record</h1>
+			<OBJECT id="datuak" data="xml/erabiltzaileak.xml" type="text/xml" style="display:none">
+			</OBJECT>
+			<FORM>
+				Eposta <BR>
+				<INPUT TYPE="TEXT" NAME="korreoa" id="korreoa" required><BR>
+				Telefonoa <BR>
+				<INPUT TYPE="TEXT" NAME="tfonoa" id="tfonoa"/><BR>
+				Student's name <BR>
+				<INPUT TYPE="TEXT" NAME="izena" id="izena"><BR>
+				Student's surname <BR>
+				<INPUT TYPE="TEXT" NAME="abizena" id="abizena">
+				<br><br>
+				<INPUT TYPE="button" value="Autocomplete" onclick="return osatu()">
+			</FORM>
+			<br>
+			<a href="layout.html">Atzera</a>
+		</div>
+	</BODY>
+</HTML>
