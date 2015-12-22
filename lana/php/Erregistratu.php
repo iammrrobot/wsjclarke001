@@ -1,11 +1,9 @@
 <?php
-
-	session_start();
 	// Konexioa sortu
 	//$sql = mysql_connect('mysql.hostinger.es', 'u275359965_root', 'dbroot') or die(mysql_error());
 	// Konexioa egiaztatu
 	//mysql_select_db("u275359965_quiz") or die(mysql_error());
-	// Konexioa lokala sortu	
+	// Konexioa lokala sortu
 	$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
@@ -23,7 +21,7 @@
 	} else {
 		echo("Pasahitza formatua ez da zuzena.<br>");
 	}
-	if (!filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@(\.e)hu(\.e)(s|us)/"))) === false) {
+	if (!filter_var($email, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)/"))) === false) {
 		echo("$email email helbide zuzena da.<br>");
 	} else {
 		echo("$email ez da email helbide zuzena.<br>");
@@ -33,6 +31,7 @@
 	} else {
 		echo("$tele telefonoa ez da zuzena.<br>");
 	}
+	$hashpasahitza = hash('sha512', '$_POST[Pasahitza]');
 	$target_dir = "uploads/";
 	$target_file = $target_dir . basename($_FILES["Argazkia"]["name"]);
 	$uploadOk = 1;
@@ -53,11 +52,11 @@
 		if($check !== false) {
 			echo "Igotako argazkia - " . $check["mime"] . ".";
 			$uploadOk = 1;
-			$sql="INSERT INTO Erabiltzaile(Izena, Eposta, Pasahitza, Telefonoa, Espezialitatea, Interesak, Argazkia) VALUES ('$_POST[Izenabizenak]', '$_POST[Eposta]', '$_POST[Pasahitza]', '$_POST[Telefonoa]', '$_POST[Espezialitatea]', '$_POST[Interesak]', '$edukia')";
+			$sql="INSERT INTO Erabiltzaile(Izena, Eposta, Pasahitza, Telefonoa, Espezialitatea, Interesak, Argazkia, Erantzuna) VALUES ('$_POST[Izenabizenak]', '$_POST[Eposta]', '$hashpasahitza', '$_POST[Telefonoa]', '$_POST[Espezialitatea]', '$_POST[Interesak]', '$edukia', '$_POST[Erantzuna]')";
 		} else {
 			echo "Ez da argazkirik igo.<br>";
 			$uploadOk = 0;
-			$sql="INSERT INTO Erabiltzaile(Izena, Eposta, Pasahitza, Telefonoa, Espezialitatea, Interesak) VALUES ('$_POST[Izenabizenak]', '$_POST[Eposta]', '$_POST[Pasahitza]', '$_POST[Telefonoa]', '$_POST[Espezialitatea]', '$_POST[Interesak]')";
+			$sql="INSERT INTO Erabiltzaile(Izena, Eposta, Pasahitza, Telefonoa, Espezialitatea, Interesak, Erantzuna) VALUES ('$_POST[Izenabizenak]', '$_POST[Eposta]', '$hashpasahitza', '$_POST[Telefonoa]', '$_POST[Espezialitatea]', '$_POST[Interesak]', '$_POST[Erantzuna]')";
 		}
 	}	
 	if (!mysql_query($sql))
@@ -66,6 +65,5 @@
 	}
 	echo "Txertatze bat eginda.";
 	mysql_close();
-	header("Location: ../layout.html");
-	//echo "<a href='IkusiErabiltzaileak.php'> Erabiltzaileak ikusi </a>";
+	echo "<a href='IkusiErabiltzaileak.php'>Erabiltzaileak ikusi</a>";
 ?> 

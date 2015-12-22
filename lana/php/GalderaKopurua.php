@@ -8,7 +8,7 @@
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
 	session_start();
-	$eposta = $_SESSION['erabiltzaile'];
+	$eposta = $_SESSION['Eposta'];
 	$sql1="SELECT * FROM `Galderak` WHERE Eposta='$eposta'";
 	$sql2="SELECT * FROM `Galderak`";
 	if (!mysql_query($sql1) || !mysql_query($sql2))

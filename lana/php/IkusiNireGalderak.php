@@ -8,7 +8,7 @@
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
 	session_start();
-	$eposta = $_SESSION['erabiltzaile'];
+	$eposta = $_SESSION['Eposta'];
 	$sql="SELECT * FROM `Galderak` WHERE Eposta='$eposta'";
 	$records = mysql_query($sql);
 	if (! $records)
@@ -18,7 +18,7 @@
 		echo '<br><tr>ZURE GALDERAK:</tr><br><br>';
 		echo '<tr>---------------------------------------------------------------------</tr><br>';
 		while($row=mysql_fetch_assoc($records)){
-			echo '<tr>'.$row['ID'].'    '.$row['Galdera'].'</tr><br>';
+			echo '<tr>'.$row['Galdera'].'</tr><br>';
 			echo '<tr>---------------------------------------------------------------------</tr><br>';
 		}
 	}

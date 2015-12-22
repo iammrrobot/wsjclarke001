@@ -4,20 +4,13 @@
 	// Konexioa egiaztatu
 	//mysql_select_db("u275359965_quiz") or die(mysql_error());
 	// Konexioa lokala sortu
-	
-	session_start();
-	if (isset($_SESSION['erabiltzaile'])){
-		header("location:php/handlingQuizzes.php");
-		
-	}
-	
 	$sql = mysql_connect('localhost', 'root', '') or die(mysql_error());
 	// Konexioa lokala egiaztatu
 	mysql_select_db("quiz") or die(mysql_error());
 	$zuzenabat=1;
 	$zuzenabi=1;
 	$hutsa=1;
-	
+	$saiakera=3;
 	
 	if (isset($_POST['Eposta'])) {
 		if(empty($_POST['Eposta']))
@@ -29,35 +22,34 @@
 		{
 			$hutsa=0;
 		}
-		$_SESSION['erabiltzaile'] = $POST_['erabiltzaile'];
+		
 		$eposta = $_POST['Eposta'];
-		$pasahitza = $_POST['Pasahitza'];
+		$hashpasahitza = hash('sha512', '$_POST[Pasahitza]');
 		
 		$query = mysql_query("SELECT Eposta, Pasahitza FROM Erabiltzaile
-		WHERE Eposta='$eposta' and pasahitza='$pasahitza'") or die(mysql_error());
+		WHERE Eposta='$eposta' and pasahitza='$hashpasahitza'") or die(mysql_error());
 
 		$result = mysql_fetch_array($query);
-		if (filter_var($eposta, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@(\.e)hu(\.e)(s|us)/"))) === false) {
+		if (filter_var($eposta, FILTER_VALIDATE_REGEXP, array("options"=>array("regexp"=>"/[a-z]+[0-9]{3}@ikasle(\.e)hu(\.e)(s|us)/"))) === false) {
 			$zuzenabat=0;
 		}
 
-		if($result[0]!=null){
-			
-			$ordua = date('H:i');
-			$sql1="INSERT INTO konexioak (eposta, ordua) VALUES ('$username','$ordua')" or die(mysql_error()) ;			
-			$_SESSION['erabiltzaile'] = $_POST['Eposta'];
+		if($result[0]!=null && $saiakera!=0){
+			session_start();
+			$_SESSION['Eposta'] = $_POST['Eposta'];
+			header("location:php/handlingQuizzes.php");
 		}else{
-			$zuzenabi=0;
+			if(isset($_COOKIE['login'])){
+				if($_COOKIE['login'] < 3){
+					$attempts = $_COOKIE['login'] + 1;
+					setcookie('login', $attempts, time()+60*10); //set the cookie for 10 minutes with the number of attempts stored
+				}else{
+					echo '10 minutuetan ezin izango duzu pasahitza sartu. Saiatu berriro beranduago.';
+				}
+			}else{
+				setcookie('login', 1, time()+60*10); //set the cookie for 10 minutes with the initial value of 1
+			}
 		}
-		if($_SESSION['erabiltzaile'] == "web@ehu.es"){
-			
-			header("location:php/reviewingQuizzes.php");
-		}else{
-			header("location:php/reviewingQuizzes.php");
-
-			
-		}
-		
 	}
 ?>
 <!DOCTYPE html> 
@@ -94,6 +86,9 @@
 				}
 			?>
 		</form>
+		<span>
+			<a href="pasahitza.php">Pasahitza ahaztu dut...</a><br>
+		</span>	
 		<span>
 			<a href="layout.html">Atzera</a><br>
 		</span>	

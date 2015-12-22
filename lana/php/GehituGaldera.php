@@ -23,7 +23,7 @@
 			$hutsa=0;
 		}
 	
-		$eposta = $_SESSION['erabiltzaile'];
+		$eposta = $_SESSION['Eposta'];
 		$galdera = $_GET['Galdera'];
 		$erantzuna = $_GET['Erantzuna'];
 		$zailtasuna = $_GET['Zailtasuna'];
